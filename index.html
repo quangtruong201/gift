@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>❤️ Gửi Vợ Yêu ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-top: 20px;
+            text-shadow: 0 0 15px white;
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .counter {
+            margin: 30px auto;
+            background: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(10px);
+            width: 320px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, .3);
+        }
+
+        .counter h2 {
+            margin-bottom: 10px;
+        }
+
+        #days {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .gallery {
+            width: 320px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, .4);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            background: white;
+            color: #ff4f81;
+        }
+
+        .letter {
+            width: 90%;
+            max-width: 700px;
+            margin: 30px auto;
+            background: white;
+            color: #444;
+            padding: 30px;
+            border-radius: 20px;
+            display: none;
+            line-height: 1.8;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            animation: float linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(0) rotate(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        footer {
+            margin: 50px 0;
+            font-size: 18px;
+        }
+
+        @media(max-width:600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .gallery {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>❤️ Gửi Vợ Yêu ❤️</h1>
+
+        <p class="subtitle">
+            Cảm ơn em đã đến bên anh ❤️
+        </p>
+
+        <div class="counter">
+            <h2>Chúng Ta Đã Bên Nhau</h2>
+            <div id="days">0</div>
+            <p>Ngày Bên Nhau</p>
+        </div>
+
+        <div class="gallery">
+            <img id="slide" src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2">
+        </div>
+
+        <button class="btn" onclick="openLetter()">
+            💌 Mở Thư Tình
+        </button>
+
+        <div class="letter" id="letter">
+
+            <h2>Gửi Em ❤️</h2>
+
+            <p>
+                Cảm ơn em đã luôn đồng hành cùng anh.
+
+                Dù cuộc sống có những lúc khó khăn,
+                nhưng chỉ cần có em bên cạnh,
+                mọi thứ đều trở nên ý nghĩa hơn.
+
+                Anh biết mình không hoàn hảo,
+                nhưng anh sẽ luôn cố gắng trở thành
+                người chồng tốt hơn mỗi ngày.
+
+                Anh mong rằng chúng ta sẽ cùng nhau
+                đi qua thật nhiều mùa xuân,
+                cùng xây dựng một mái ấm hạnh phúc,
+                và cùng già đi bên nhau.
+
+                ❤️ Anh Thương Em ❤️
+            </p>
+
+            <br>
+
+            <h3>— Chồng của em —</h3>
+
+        </div>
+
+        <footer>
+            💖 Mãi Keo Nha Vợ 💖
+        </footer>
+
+    </div>
+
+    <audio autoplay loop>
+        <source src="mp3/ngaydautien.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+
+        // ======= Đếm ngày yêu =======
+        // Đổi thành ngày bắt đầu yêu nhau
+
+        const loveDate = new Date("2024-08-20");
+
+        function updateCounter() {
+
+            const today = new Date();
+
+            const diff =
+                today.getTime() -
+                loveDate.getTime();
+
+            const days =
+                Math.floor(
+                    diff /
+                    (1000 * 60 * 60 * 24)
+                );
+
+            document.getElementById("days")
+                .innerText = days;
+        }
+
+        updateCounter();
+
+        // ======= Thư tình =======
+
+        function openLetter() {
+
+            document.getElementById("letter")
+                .style.display = "block";
+
+            document.getElementById("letter")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+        // ======= Slideshow =======
+
+        const images = [
+            "image/hihihiihihi.jpg",
+
+            "image/emne.jpg",
+
+            "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2",
+
+            "https://images.unsplash.com/photo-1522673607200-164d1b6ce486",
+
+        ];
+
+        let current = 0;
+
+        setInterval(() => {
+
+            current++;
+
+            if (current >= images.length) {
+                current = 0;
+            }
+
+            document.getElementById("slide")
+                .src = images[current];
+
+        }, 3000);
+
+        // ======= Trái tim bay =======
+
+        function createHeart() {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.fontSize =
+                Math.random() * 25 + 15 + "px";
+
+            heart.style.animationDuration =
+                Math.random() * 4 + 4 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 200);
+
+    </script>
+
+</body>
+
+</html>
