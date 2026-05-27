@@ -310,6 +310,26 @@
 
         setInterval(createHeart, 200);
 
+        // Tự phát nhạc sau lần click đầu tiên
+
+document.addEventListener("click", function () {
+
+    const music = document.getElementById("bgMusic");
+
+    if (music.paused) {
+
+        music.play()
+            .then(() => {
+                console.log("Music started");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+    }
+
+}, { once: true });
+
     </script>
 
 </body>
